@@ -1,44 +1,114 @@
 var listOfCandidate;
+var programmingCandidate;
+var marketingCandidate;
+var designCandidate;
+var contentCandidate;
+var searchList;
+var major;
 
 $.getJSON("https://ywc15.ywc.in.th/api/interview", data => {
   listOfCandidate = data;
-  window.getCandidateList("programming");
-  console.log(listOfCandidate.length);
+  if (data != null) {
+    initInstance();
+    major = "programming";
+    getCandidateList(programmingCandidate);
+    console.log(listOfCandidate.length);
+  }
 });
 
 $(document).ready(function() {
   $("#programming").click(function() {
-    window.getCandidateList("programming");
+    major = "programming";
+    getCandidateList(programmingCandidate);
   });
 
   $("#marketing").click(function() {
-    window.getCandidateList("marketing");
+    major = "marketing";
+    getCandidateList(marketingCandidate);
   });
 
   $("#design").click(function() {
-    window.getCandidateList("design");
+    major = "design";
+    getCandidateList(designCandidate);
   });
 
   $("#content").click(function() {
-    window.getCandidateList("content");
+    major = "design";
+    getCandidateList(contentCandidate);
   });
 
-  $("#search").on
-});
-
-function getCandidateList(major = "programming") {
-  $("#candidate-list").empty();
-  for (var i = 0; i < listOfCandidate.length; i++) {
-    if (listOfCandidate[i].major === major) {
-      $("#candidate-list").append(
-        '<li class="collection-item">' +
-          listOfCandidate[i].interviewRef +
-          " " +
-          listOfCandidate[i].firstName +
-          " " +
-          listOfCandidate[i].lastName +
-          "</li>"
-      );  
+  $("#search").on("keyup", () => {
+    var searchValue = $("#search").val();
+    if (searchValue != "") {
+      switch (major) {
+        case "programming":
+          searchList = searchCandidate(
+            programmingCandidate,
+            "firstName",
+            searchValue
+          );
+          break;
+        case "marketing":
+          searchList = searchCandidate(
+            marketingCandidate,
+            "firstName",
+            searchValue
+          );
+          break;
+        case "design":
+          searchList = searchCandidate(
+            designCandidate,
+            "firstName",
+            searchValue
+          );
+          break;
+        case "content":
+          searchList = searchCandidate(
+            contentCandidate,
+            "firstName",
+            searchValue
+          );
+          break;
+      }
+      getCandidateList(searchList);
     }
+  });
+});
+function initInstance() {
+  programmingCandidate = searchCandidate(
+    listOfCandidate,
+    "major",
+    "programming"
+  );
+  marketingCandidate = searchCandidate(listOfCandidate, "major", "marketing");
+  designCandidate = searchCandidate(listOfCandidate, "major", "design");
+  contentCandidate = searchCandidate(listOfCandidate, "major", "content");
+}
+function getCandidateList(candidateList) {
+  $("#candidate-list").empty();
+  candidateList.sort(function(a, b){
+    var x = a.interviewRef.toLowerCase();
+    var y = b.interviewRef.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;
+  });
+  for (var i = 0; i < candidateList.length; i++) {
+    $("#candidate-list").append(
+      '<li class="collection-item">' +
+        candidateList[i].interviewRef +
+        " " +
+        candidateList[i].firstName +
+        " " +
+        candidateList[i].lastName +
+        "</li>"
+    );
   }
+}
+function searchCandidate(candidateList, searchKey, searchValue) {
+  var search = JSON.search(
+    candidateList,
+    `//*[contains(${searchKey}, "${searchValue}")]`
+  );
+  return search;
 }
