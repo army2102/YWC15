@@ -5,11 +5,13 @@ var designCandidate;
 var contentCandidate;
 var searchList;
 
+// Load data from API
 $.getJSON("https://ywc15.ywc.in.th/api/interview", data => {
   listOfCandidate = data;
   initInstance();
 });
 
+// Set animation & search
 $(document).ready(function() {
   $(".scrollspy").scrollSpy();
 
@@ -27,29 +29,22 @@ $(document).ready(function() {
       callback: function(el) {
         Materialize.fadeInImage($(el));
       }
-    },
-    {
-      selector: '#section-homework"',
-      offset: 0,
-      callback: function(el) {
-        Materialize.fadeInImage($(el));
-      }
     }
   ];
   Materialize.scrollFire(options);
 
   $("#search").on("keyup", () => {
     var searchValue = $("#search").val();
-    if (searchValue != ""){
+    if (searchValue != "") {
       searchList = searchCandidate(listOfCandidate, "firstName", searchValue);
       getCandidateList(searchList);
     } else {
       getCandidateList(programmingCandidate);
     }
-   
   });
 });
 
+// default setting when refresh page
 function initInstance() {
   programmingCandidate = searchCandidate(
     listOfCandidate,
@@ -64,6 +59,7 @@ function initInstance() {
   getCandidateList(programmingCandidate);
 }
 
+// fucntion: show candidate list
 function getCandidateList(candidateList) {
   $("#candidate-code-list").empty();
   $("#candidate-name-list").empty();
@@ -85,19 +81,20 @@ function getCandidateList(candidateList) {
   Materialize.fadeInImage($("#candidate-major-list"));
   for (var i = 0; i < candidateList.length; i++) {
     $("#candidate-code-list").append(
-      `<li class="collection-item">${candidateList[i].interviewRef}</li>`
+      `<li class="collection-item ">${candidateList[i].interviewRef}</li>`
     );
     $("#candidate-name-list").append(
-      `<li class="collection-item">${candidateList[i].firstName} ${
+      `<li class="collection-item ">${candidateList[i].firstName} ${
         candidateList[i].lastName
       }</li>`
     );
     $("#candidate-major-list").append(
-      `<li class="collection-item uppercase">${candidateList[i].major}</li>`
+      `<li class="collection-item uppercase ">${candidateList[i].major}</li>`
     );
   }
 }
 
+// fucntion: search candidate list
 function searchCandidate(candidateList, searchKey, searchValue) {
   var search = JSON.search(
     candidateList,
