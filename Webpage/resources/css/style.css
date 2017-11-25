@@ -11,16 +11,10 @@
 }
 
 html {
-  /* background-color: #333; */
-  /* color: white; */
   font-size: 20px;
   font-family: "Roboto", sans-serif;
-  text-rendering: optimizeLegibility;
 }
 
-.side-nav {
-  /* background-color: #222; */
-}
 h1 {
   font-size: 200%;
 }
@@ -33,37 +27,20 @@ h3 {
   font-size: 130%;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .card-panel {
   color: black;
 }
 
-/*----------------------------------------------------*/
-
-/* Section-list */
-
-/*----------------------------------------------------*/
-
-
-/* .section-interviewer-list li,
-h3,
-p {
-  padding: 15px;
+.major-box p {
+  margin-bottom: 5%;
 }
 
-.section-interviewer-list li,
-h3 {
-  border-bottom: 1px solid #e8e8e8;
+.collapsible-body p {
+  margin-bottom: 1%;
 }
 
-.section-interviewer-list li:first-child {
-    padding-top: 0;
-}
 
-.section-interviewer-list li:last-child {
-  border: 0;
-} */
-
-/* .section-list,
-header {
-    border: 2px solid white;
-} */

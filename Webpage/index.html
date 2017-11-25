@@ -14,21 +14,20 @@
 
 <body>
 
-    <header class="center align teal lighten-2">
+    <header id="section-header" class="center align teal lighten-2 scrollspy">
         <img src="./resources/img/logo.png" alt="logo" class="responsive-img">
     </header>
 
     <div class="container">
-        <section class="section-announce">
+        <section id="section-announce" class="section">
             <div class="row">
-                <h1 class="center-align">SEMI_FINAL ROUND
+                <h1 class="center-align">SEMI FINAL ROUND
                     <br> ประกาศผู้มีสิทธิ์เข้าสัมภาษณ์
                 </h1>
             </div>
 
             <div class="row">
-                <h2 class="center-align">การสัมภาษณ์จะจัดขึ้นในวันที่ 26 พฤศจิกายน 2560 ณ อาคาร ซี.พี.ทาวเวอร์ 1 (สีลม) ซึ่งจะแบ่งออกเป็น 2 รอบคือรอบช่วงเช้าตั้งแต่เวลา
-                    9.00 น. ถึง 12.00 น. และ รอบช่วงบ่ายตั้งแต่เวลา 13.00 น. ถึง 18.00 น.</h2>
+                <h2 class="center-align">การสัมภาษณ์จะจัดขึ้นในวันที่ 26 พฤศจิกายน 2560 ณ อาคาร ซี.พี.ทาวเวอร์ 1 (สีลม) </h2>
             </div>
 
             <div class="row">
@@ -43,12 +42,15 @@
                         <li>Portfolio สามารถนำมาประกอบการสัมภาษณ์ได้ สำหรับน้อง ๆ สาขาดีไซน์จะต้องนำ Portfolio มาด้วยทุกคน</li>
                     </ol>
                 </div>
-                <div class="col s3">
-                    <h2>สอบถามเพิ่มเติมติดต่อ</h2>
-                    <ul>
-                        <li>พี่เบ๊บ: 064-174-7080</li>
-                        <li>พี่ฟง: 092-458-7067</li>
-                        <li>พี่เบนซ์: 085-666-7571</li>
+                <div class="col s3 card-panel hoverable">
+
+                    <ul class="collection with-header">
+                        <li class="collection-header">
+                            <h2>สอบถามเพิ่มเติมติดต่อ</h2>
+                        </li>
+                        <li class="collection-item">พี่เบ๊บ: 064-174-7080</li>
+                        <li class="collection-item">พี่ฟง: 092-458-7067</li>
+                        <li class="collection-item">พี่เบนซ์: 085-666-7571</li>
                     </ul>
                 </div>
             </div>
@@ -62,119 +64,160 @@
         </section>
         <div class="divider"></div>
 
-        <section class="section-interviewer-list">
+        <section id="section-interviewer-list" class="section scrollspy">
             <div class="row">
                 <h1 class="center-align">รายชื่อผู้ผ่านเข้ารอบ</h1>
 
             </div>
             <div class="row">
-                <div id="programming" class="col s3 card-panel center-align hoverable">
-                    <img src="./resources/img/programming.png" alt="programming">
-                    <p>Web programming</p>
+                <div id="programming" class="col s3 card-panel center-align hoverable major-box" onclick="getCandidateList(programmingCandidate)">
+                    <img src="./resources/img/programming.png" alt="programming" class="responsive-img">
+                    <p class="uppercase">Web programming</p>
                 </div>
-                <div id="marketing" class="col s3 card-panel center-align hoverable">
-                    <img src="./resources/img/marketing.png" alt="marketing">
-                    <p>Web marketing</p>
+                <div id="marketing" class="col s3 card-panel center-align hoverable major-box" onclick="getCandidateList(marketingCandidate)">
+                    <img src="./resources/img/marketing.png" alt="marketing" class="responsive-img">
+                    <p class="uppercase">Web marketing</p>
                 </div>
-                <div id="design" class="col s3 card-panel center-align hoverable">
-                    <img src="./resources/img/design.png" alt="design">
-                    <p>Web design</p>
+                <div id="design" class="col s3 card-panel center-align hoverable major-box" onclick="getCandidateList(designCandidate)">
+                    <img src="./resources/img/design.png" alt="design" class="responsive-img">
+                    <p class="uppercase">Web design</p>
                 </div>
-                <div id="content" class="col s3 card-panel center-align hoverable">
-                    <img src="./resources/img/content.png" alt="content">
-                    <p>Web content</p>
+                <div id="content" class="col s3 card-panel center-align hoverable major-box" onclick="getCandidateList(contentCandidate)">
+                    <img src="./resources/img/content.png" alt="content" class="responsive-img">
+                    <p class="uppercase">Web content</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row card-panel">
                 <div class="input-field">
-
                     <i class="material-icons prefix">search</i>
                     <input id="search" type="text" class="validate">
                     <label for="search">ค้นหาชื่อ</label>
-
                 </div>
             </div>
-            <div class="row mornning">
-
-                <ul id="candidate-list" class="col s8 center align collection">
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                </ul>
-
-                <!-- <ul class="col s4 center align collection">
+            <div class="row">
+                <ul class="col s3 collection with-header center align">
                     <li class="collection-header">
-                        <h3>รายชื่อสัมภาษณ์ช่วงบ่าย</h3>
+                        <h3>รหัส</h3>
                     </li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                    <li class="collection-item">PG01_ ปฏิภาณ นาครินทร์</li>
-                </ul> -->
-                <div class="col s4 card-panel">
-                    <h3 class="center align">การบ้านสาขาโปรแกรมมิ่ง</h3>
-                    <p>ให้เขียน เว็บไซต์ประกาศผลผู้ผ่านเข้ารอบสัมภาษณ์ของ YWC#15 โดยใช้ข้อมูลจาก API โดยมี Feature ดังนี้</p>
-                    <ul class="collection">
-                        <li class="collection-item">ดึงข้อมูลจาก API โดยตรง</li>
-                        <li class="collection-item">ให้แสดงผลแยกแต่ละสาขา</li>
-                        <li class="collection-item">มีระบบค้นหาชื่อผ่านกล่อง Search</li>
-                        <li class="collection-item">ความสามารถหรือ Feature พิเศษอื่น ๆ ที่มีความแตกต่าง และแสดงความสามารถของน้องออกมาให้ได้มากที่สุด</li>
-                    </ul>
-                    <p>เมื่อทำเสร็จแล้วให้ Push Source Codeขึ้น GitHub ก่อนเวลาสัมภาษณ์</p>
-                </div>
+                </ul>
+                <ul class="col s6 collection with-header center align">
+                    <li class="collection-header">
+                        <h3>ชื่อ-นามสกุล</h3>
+                    </li>
+                </ul>
+                <ul class="col s3 collection with-header center align">
+                    <li class="collection-header">
+                        <h3>สาขา</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul id="candidate-code-list" class="col s3 collection center align">
+                </ul>
+                <ul id="candidate-name-list" class="col s6 collection center align">
+                </ul>
+                <ul id="candidate-major-list" class="col s3 collection center align">
+                </ul>
             </div>
 
         </section>
+        <div class="divider"></div>
+
+        <section id="section-homework" class="section scrollspy">
+
+
+            <ul class="collapsible popout" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header active valign-wrapper">
+                        <img src="./resources/img/programming.png" alt="programming" class="responsive-img">
+                        <h2>การบ้านสาขาโปรแกรมมิ่ง</h2>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>ให้เขียน เว็บไซต์ประกาศผลผู้ผ่านเข้ารอบสัมภาษณ์ของ YWC#15 โดยใช้ข้อมูลจาก API โดยมี Feature ดังนี้</p>
+                        <ul class="collection with-header card-panel">
+                            <li class="collection-item ">
+                                ดึงข้อมูลจาก API โดยตรง </li>
+                            <li class="collection-item ">
+                                ให้แสดงผลแยกแต่ละสาขา </li>
+                            <li class="collection-item ">
+                                มีระบบค้นหาชื่อผ่านกล่อง Search </li>
+                            <li class="collection-item ">
+                                ความสามารถหรือ Feature พิเศษอื่น ๆ ที่มีความแตกต่าง และแสดงความสามารถของน้องออกมาให้ได้มากที่สุด เมื่อทำเสร็จแล้วให้ Push
+                                Source Code ขึ้น GitHub ก่อนเวลาสัมภาษณ์</li>
+                        </ul>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header valign-wrapper">
+                        <img src="./resources/img/marketing.png" alt="programming" class="responsive-img">
+                        <h2>การบ้านสาขามาร์เก็ตติ้ง</h2>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>ให้ทำแผนการตลาด (Marketing Plan) สำหรับเว็บไซต์หนึ่งเว็บไซต์ โดยเลือกเว็บไซต์ใด ๆ ก็ได้ ทั้งเว็บไซต์ของไทยและเว็บไซต์ของต่างประเทศ
+                            นำเสนอในรูปแบบพรีเซนเทชั่น ไม่เกิน 10 หน้า ภายในเวลา 5 นาที</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header valign-wrapper">
+                        <img src="./resources/img/design.png" alt="programming" class="responsive-img">
+                        <h2>การบ้านสาขาดีไซน์</h2>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>ให้ผู้ผ่านเข้ารอบสัมภาษณ์ออกแบบเว็บไซต์ของ "คณะรักษาความสงบแห่งชาติ หรือ คสช." เพื่อเป็นสื่อกลางในการประชาสัมพันธ์นโยบายต่าง
+                            ๆ และเป็นสื่อกลางระหว่างประชาชนกับคณะรักษาความสงบแห่งชาติ โดยให้ออกแบบในลักษณะของ One Page Design
+                            Website
+                            <br>
+                            <strong> ** สำหรับผู้ผ่านเข้ารอบสัมภาษณ์คนใดทำ CSS มา คณะกรรมการจะพิจารณาเป็นพิเศษ</strong>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header valign-wrapper">
+                        <img src="./resources/img/content.png" alt="programming" class="responsive-img">
+                        <h2>การบ้านสาขาคอนเทนท์</h2>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>ให้น้อง ๆ เลือกทำคอนเทนต์ใด คอนเทนต์หนึ่งจาก 2 หัวข้อด้านล่าง โดยต้องทำเป็นคอนเทนต์ออกมาจริงเท่านั้น
+                            ไม่จำกัดรูปแบบการนำเสนอ
+                        </p>
+                        <ul class="collection with-header card-panel">
+                            <li class="collection-item ">คอนเทนต์ที่ทำให้ผู้ใช้ Social เข้าใจ Cyberbullying และตระหนักถึงปัญหาที่เกิดขึ้นจาก Cyberbullying</li>
+                            <li class="collection-item ">คอนเทนต์ที่ทำให้คนไทยเปลี่ยนพฤติกรรมเสพติดหน้าจอ เสพติด Social หันมาพูดคุยกัน เจอหน้ากันในชีวิตจริง
+                                ๆ มากกว่าที่เป็นอยู่</li>
+                        </ul>
+
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+
     </div>
-    <footer class="page-footer teal">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 1</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 2</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#!">Link 4</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
 
 
-
-
-
-
-
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">arrow_upward</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating red" href="#section-header">
+                    <i class="material-icons">looks_one</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue darken-1" href="#section-interviewer-list">
+                    <i class="material-icons">looks_two</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating green" href="#section-homework">
+                    <i class="material-icons">looks_3</i>
+                </a>
+            </li>
+        </ul>
+    </div>
     <!--Import jQuery before materialize.js-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./resources/js/materialize.min.js"></script>
