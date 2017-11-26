@@ -13,8 +13,10 @@ $.getJSON("https://ywc15.ywc.in.th/api/interview", data => {
 
 // Set animation & search
 $(document).ready(function() {
+  // Activate scrollSpy
   $(".scrollspy").scrollSpy();
 
+  // Activate fadeIn anim
   var options = [
     {
       selector: "#section-announce",
@@ -33,6 +35,7 @@ $(document).ready(function() {
   ];
   Materialize.scrollFire(options);
 
+  // Search candidate list
   $("#search").on("keyup", () => {
     var searchValue = $("#search").val();
     if (searchValue != "") {
@@ -61,10 +64,16 @@ function initInstance() {
 
 // fucntion: show candidate list
 function getCandidateList(candidateList) {
+  // Add fadeIn animation
+  Materialize.fadeInImage($("#candidate-code-list"));
+  Materialize.fadeInImage($("#candidate-name-list"));
+  Materialize.fadeInImage($("#candidate-major-list"));
+  // Clear element
   $("#candidate-code-list").empty();
   $("#candidate-name-list").empty();
   $("#candidate-major-list").empty();
 
+  // Sort object by
   candidateList.sort(function(a, b) {
     var x = a.interviewRef.toLowerCase();
     var y = b.interviewRef.toLowerCase();
@@ -76,9 +85,7 @@ function getCandidateList(candidateList) {
     }
     return 0;
   });
-  Materialize.fadeInImage($("#candidate-code-list"));
-  Materialize.fadeInImage($("#candidate-name-list"));
-  Materialize.fadeInImage($("#candidate-major-list"));
+
   for (var i = 0; i < candidateList.length; i++) {
     $("#candidate-code-list").append(
       `<li class="collection-item ">${candidateList[i].interviewRef}</li>`
