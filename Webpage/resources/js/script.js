@@ -74,13 +74,13 @@ function getCandidateList(candidateList) {
   $("#candidate-major-list").empty();
 
   // Sort object by
-  candidateList.sort(function(a, b) {
-    var x = a.interviewRef.toLowerCase();
-    var y = b.interviewRef.toLowerCase();
-    if (x < y) {
+  candidateList.sort(function(valueA, valueB) {
+    var valueAToUpper = valueA.interviewRef.toLowerCase();
+    var valueBToUpper = valueB.interviewRef.toLowerCase();
+    if (valueAToUpper < valueBToUpper) {
       return -1;
     }
-    if (x > y) {
+    if (valueAToUpper > valueBToUpper) {
       return 1;
     }
     return 0;
